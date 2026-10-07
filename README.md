@@ -1,75 +1,39 @@
-# React + TypeScript + Vite
+# Fundación Manos Guerreras
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sitio web estático creado con React, TypeScript y Vite.
 
-Currently, two official plugins are available:
+## Requisitos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Node.js 22.12 o superior (la versión 24 está indicada en `.nvmrc`).
+- npm.
 
-## React Compiler
+## Desarrollo local
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```sh
+npm ci
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## Validación de producción
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```sh
+npm run lint
+npm run build
+npm run preview
 ```
+
+El sitio compilado queda en `dist/`.
+
+## Despliegue en Vercel
+
+El archivo `vercel.json` configura Vercel para instalar dependencias con `npm ci`, ejecutar `npm run build` y publicar `dist/`.
+
+1. Sube este proyecto a un repositorio Git (GitHub, GitLab o Bitbucket).
+2. Importa el repositorio desde el panel de Vercel y conserva la configuración detectada.
+3. Pulsa **Deploy**. No se requieren variables de entorno para este sitio.
+
+También puedes desplegar desde la carpeta del proyecto con la CLI de Vercel (`vercel` y luego `vercel --prod`).
+
+## Dominio y buscadores
+
+Cuando tengas un dominio definitivo, configúralo en Vercel y actualiza la información de dominio/canonical y el sitemap antes de enviarlo a buscadores. `public/robots.txt` permite la indexación del sitio.
