@@ -608,26 +608,40 @@
 .story-card-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: 24px;
 }
 
 .story-card {
   overflow: hidden;
-  border: 1px solid #f0ece8;
-  border-radius: 6px;
+  border: 1px solid #eee8e2;
+  border-radius: 12px;
   background: #fff;
-  box-shadow: 0 12px 32px rgba(50, 37, 59, .055);
+  box-shadow: 0 14px 38px rgba(50, 37, 59, .07);
+  transition: box-shadow .25s ease, transform .25s ease;
+}
+
+.story-card:hover {
+  box-shadow: 0 20px 45px rgba(50, 37, 59, .12);
+  transform: translateY(-5px);
 }
 
 .story-card-image {
   position: relative;
-  height: 205px;
+  height: 285px;
   overflow: hidden;
   background: #e8ded4;
 }
 
 .story-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 16%;
   transition: transform .5s ease;
+}
+
+.story-card:nth-child(2) .story-card-image img {
+  object-position: center 30%;
 }
 
 .story-card:hover .story-card-image img {
@@ -636,21 +650,22 @@
 
 .story-number {
   position: absolute;
-  right: 12px;
-  bottom: 12px;
+  right: 15px;
+  bottom: 15px;
   display: grid;
-  width: 31px;
-  height: 31px;
+  width: 38px;
+  height: 38px;
   place-items: center;
   border-radius: 50%;
-  background: var(--orange);
+  border: 1px solid rgba(255, 255, 255, .55);
+  background: rgba(87, 52, 110, .88);
   color: #fff;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
 }
 
 .story-card-copy {
-  padding: 17px 18px 19px;
+  padding: 21px 22px 24px;
 }
 
 .card-category {
@@ -1107,6 +1122,15 @@
   .objectives-section {
     gap: 35px;
   }
+
+  .story-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .story-card-image {
+    height: 270px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1329,11 +1353,15 @@
 
   .story-card-grid {
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 18px;
   }
 
   .story-card-image {
-    height: 225px;
+    height: clamp(250px, 72vw, 320px);
+  }
+
+  .story-card-copy {
+    padding: 19px 20px 22px;
   }
 
   .impact-inner {
