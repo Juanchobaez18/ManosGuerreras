@@ -2,7 +2,7 @@ import type { LineaAccion, ObjetivoEspecifico } from './types/fundacion';
 import { TarjetaPrograma } from './components/TarjetaPrograma';
 import './App.css';
 import logo from './assets/logo-fundacion.jpg';
-import heroImage from './assets/hero-cuidado.jpg';
+import heroImage from './assets/fondo.png';
 import storyImage from './assets/historia-cuidado.jpg';
 import supportImage from './assets/campana-apoyo.jpg';
 import wellbeingImage from './assets/campana-bienestar.jpg';
@@ -140,7 +140,7 @@ function App() {
             <div className="hero-orbit hero-orbit-one" />
             <div className="hero-orbit hero-orbit-two" />
             <div className="hero-main-image">
-              <img src={heroImage} alt="Una mujer recibe un servicio de cuidado y bienestar" />
+              <img src={heroImage} alt="Equipo de la fundación Manos Guerreras en Boyacá" />
             </div>
             <div className="hero-float-card">
               <span className="heart-mark" aria-hidden="true">♥</span>

@@ -234,16 +234,25 @@
 
 .hero-main-image {
   position: absolute;
-  top: 18px;
-  right: 25px;
-  width: min(88%, 420px);
-  height: 430px;
-  overflow: hidden;
-  border: 9px solid #fff;
-  border-radius: 49% 48% 44% 46% / 35% 39% 55% 60%;
-  background: #eadfd0;
-  box-shadow: 0 24px 70px rgba(68, 42, 76, .13);
-  transform: rotate(3deg);
+  top: 12px;
+  right: 14px;
+  width: min(86%, 575px);
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+
+.hero-main-image::before {
+  content: "";
+  position: absolute;
+  inset: -18px -10px -16px -12px;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 40%, rgba(189, 160, 120, .32), rgba(149, 118, 167, .18) 32%, rgba(255, 255, 255, 0) 70%);
+  filter: blur(18px);
 }
 
 .hero-main-image img,
@@ -256,8 +265,14 @@
 }
 
 .hero-main-image img {
-  object-position: 50% 42%;
-  transform: rotate(-3deg) scale(1.08);
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 35% 38% 30% 32% / 32% 30% 42% 52%;
+  opacity: .99;
+  filter: saturate(1.06) contrast(1.04) drop-shadow(0 18px 30px rgba(81, 48, 84, .08));
 }
 
 .hero-orbit {
